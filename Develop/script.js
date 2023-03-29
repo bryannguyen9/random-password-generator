@@ -2,16 +2,16 @@
 var generateBtn = document.querySelector("#generate");
 
 //----------------prompt section-----------------------
+
 function generatePassword() {
   // Prompt user for password criteria
-
-  // Check if user entered a valid length and selected at least one character set
-  //still need to do a while so the length prompt loops until correct length
   var length = parseInt(prompt("How many characters should the password contain? (8-128)"));
-    if (lengthCheck(length) || length < 8 || length > 128 || charSet === "") {
-      alert("Invalid password length. Must be between 8-128 characters.");
-      return;
-    }
+
+  // Password length check
+  if (length < 8 || length > 128 || charSet === "" || isNaN(length)) {
+    alert("Invalid Password length. Please enter a length between 8-128. Try Again!");
+    return;
+  }
   var includeLowercase = confirm("Should the password include lowercase letters?");
   var includeUppercase = confirm("Should the password include uppercase letters?");
   var includeNumeric = confirm("Should the password include numbers?");
@@ -38,7 +38,10 @@ function generatePassword() {
     charSet += specialChars;
   }
 
- // Generate password
+  // Check if user entered a valid length and selected at least one character set
+  
+
+  // Generate password
   var password = "";
   for (var i = 0; i < length; i++) {
     var randomIndex = Math.floor(Math.random() * charSet.length);
@@ -47,7 +50,6 @@ function generatePassword() {
 
   // Return generated password
   return password;
-
 }
 
 // Write password to the #password input
