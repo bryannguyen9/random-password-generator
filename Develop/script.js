@@ -2,216 +2,50 @@
 var generateBtn = document.querySelector("#generate");
 
 //----------------prompt section-----------------------
-var properLength = false;
-var wantLower = false;
-var wantUpper = false;
-var wantNumbers = false;
-var wantSpecial = false;
-
-function getLength() {
-      while (properLength == false) {
-        var length = prompt("Please enter how long you would like your password to be (8-128 characters)", );
-        var intLength = parseInt(length);
-          if (intLength >= 8 && intLength <= 128) {
-            properLength = true;
-            window.alert("You entered that you wanted a password length of: " + intLength);
-          }
-          else {
-            window.alert("You cannot have a password of length: " + length);
-          }
-      }
-      return intLength;
-    }
-
-function getLowerOption() {
-  let lowercaseOption = window.confirm("Do you want lowercase in password? (Press 'OK' for yes or 'CANCEL' for no)");
-    if (lowercaseOption == true) {
-      wantLower = true;
-      window.alert("You entered that you wanted lowercase in your password!");
-    }
-    else {
-      window.alert("You entered that you did not want lowercase in your password!");
-    }
-    return lowercaseOption;
-}
-
-function getUpperOption() {
-  let uppercaseOption = window.confirm("Do you want UPPERcase in password? (Press 'OK' for yes or 'CANCEL' for no)");
-    if (uppercaseOption == true) {
-      wantUpper = true;
-      window.alert("You entered that you wanted UPPERcase in your password!");
-    }
-    else {
-      window.alert("You entered that you did not want UPPERcase in your password!");
-    }
-    return uppercaseOption;
-}
-
-function getNumericOption() {
-  let numericOption = window.confirm("Do you want numerics in password? (Press 'OK' for yes or 'CANCEL' for no)");
-    if (numericOption == true) {
-      wantNumbers = true;
-      window.alert("You entered that you wanted numerics in your password!");
-    }
-    else {
-      window.alert("You entered that you did not want numerics in your password!");
-    }
-    return numericOption;
-}
-
-function getSpecialOption() {
-  let specialOption = window.confirm("Do you want special characters (i.e. @,#,*,%...) in password? (Press 'OK' for yes or 'CANCEL' for no)");
-    if (specialOption == true) {
-      wantSpecial = true;
-      window.alert("You entered that you wanted special characters in your password!");
-    }
-    else {
-      window.alert("You entered that you did not want special characters in your password!");
-    }
-    return specialOption;
-}
-
-//--------generate password section---------------
 function generatePassword() {
-  var promptFinish = false;
+  // Prompt user for password criteria
 
-  while (!promptFinish) {
-    var passwordLength = getLength();
-    var lowerOption = getLowerOption();
-    var upperOption = getUpperOption();
-    var numericOption = getNumericOption();
-    var specialOption = getSpecialOption();
-    promptFinish = true;
+  // Check if user entered a valid length and selected at least one character set
+  //still need to do a while so the length prompt loops until correct length
+  var length = parseInt(prompt("How many characters should the password contain? (8-128)"));
+    if (lengthCheck(length) || length < 8 || length > 128 || charSet === "") {
+      alert("Invalid password length. Must be between 8-128 characters.");
+      return;
+    }
+  var includeLowercase = confirm("Should the password include lowercase letters?");
+  var includeUppercase = confirm("Should the password include uppercase letters?");
+  var includeNumeric = confirm("Should the password include numbers?");
+  var includeSpecial = confirm("Should the password include special characters?");
+
+  // Define character sets to be used based on user input
+  var lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
+  var uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var numericChars = "0123456789";
+  var specialChars = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+
+  // Build character set based on user input
+  var charSet = "";
+  if (includeLowercase) {
+    charSet += lowercaseChars;
   }
-  
-  if (promptFinish = true) {
-    if (lowerOption == true && upperOption == true && numericOption == true && specialOption == true) {
-      charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+",
-      password = "";
-        for (var i = 0, n = charset.length; i < length; i++) {
-          password += passwordLength.charAt(Math.floor(Math.random() * n));
-        }
-      console.log(password);
-    }
-
-    else if (lowerOption == false && upperOption == true && numericOption == true && specialOption == true) {
-      charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+",
-      password = "";
-        for (var i = 0, n = charset.length; i < length; i++) {
-          password += passwordLength.charAt(Math.floor(Math.random() * n));
-        }
-      console.log(password);
-    }
-
-    else if (lowerOption == true && upperOption == false && numericOption == true && specialOption == true) {
-      charset = "abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+",
-      password = "";
-        for (var i = 0, n = charset.length; i < length; i++) {
-          password += passwordLength.charAt(Math.floor(Math.random() * n));
-        }
-      console.log(password);
-    }
-
-    else if (lowerOption == true && upperOption == true && numericOption == false && specialOption == true) {
-      charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+",
-      password = "";
-        for (var i = 0, n = charset.length; i < length; i++) {
-          password += passwordLength.charAt(Math.floor(Math.random() * n));
-        }
-      console.log(password);
-    }
-
-    else if (lowerOption == true && upperOption == true && numericOption == true && specialOption == false) {
-      charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-      password = "";
-        for (var i = 0, n = charset.length; i < length; i++) {
-          password += passwordLength.charAt(Math.floor(Math.random() * n));
-        }
-      console.log(password);
-    }
-
-    else if (lowerOption == true && upperOption == false && numericOption == false && specialOption == false) {
-      charset = "abcdefghijklmnopqrstuvwxyz",
-      password = "";
-        for (var i = 0, n = charset.length; i < length; i++) {
-          password += passwordLength.charAt(Math.floor(Math.random() * n));
-        }
-      console.log(password);
-    }
-
-    else if (lowerOption == false && upperOption == false && numericOption == true && specialOption == true) {
-      charset = "0123456789!@#$%^&*()_+",
-      password = "";
-        for (var i = 0, n = charset.length; i < length; i++) {
-          password += passwordLength.charAt(Math.floor(Math.random() * n));
-        }
-      console.log(password);
-    }
-
-    else if (lowerOption == false && upperOption == true && numericOption == false && specialOption == true) {
-      charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+",
-      password = "";
-        for (var i = 0, n = charset.length; i < length; i++) {
-          password += passwordLength.charAt(Math.floor(Math.random() * n));
-        }
-      console.log(password);
-    }
-
-    else if (lowerOption == false && upperOption == true && numericOption == true && specialOption == false) {
-      charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-      password = "";
-        for (var i = 0, n = charset.length; i < length; i++) {
-          password += passwordLength.charAt(Math.floor(Math.random() * n));
-        }
-      console.log(password);
-    }
-
-    else if (lowerOption == false && upperOption == false && numericOption == false && specialOption == true) {
-      charset = "!@#$%^&*()_+",
-      password = "";
-        for (var i = 0, n = charset.length; i < length; i++) {
-          password += passwordLength.charAt(Math.floor(Math.random() * n));
-        }
-      console.log(password);
-    }
-
-    else if (lowerOption == false && upperOption == false && numericOption == false && specialOption == false) {
-      charset = "-",
-      password = "";
-        for (var i = 0, n = charset.length; i < length; i++) {
-          password += passwordLength.charAt(Math.floor(Math.random() * n));
-        }
-      console.log(password);
-    }
-
-    else if (lowerOption == false && upperOption == true && numericOption == false && specialOption == false) {
-      charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-      password = "";
-        for (var i = 0, n = charset.length; i < length; i++) {
-          password += passwordLength.charAt(Math.floor(Math.random() * n));
-        }
-      console.log(password);
-    }
-
-    else if (lowerOption == false && upperOption == false && numericOption == true && specialOption == false) {
-      charset = "0123456789",
-      password = "";
-        for (var i = 0, n = charset.length; i < length; i++) {
-          password += passwordLength.charAt(Math.floor(Math.random() * n));
-        }
-      console.log(password);
-    }
-
-    else if (lowerOption == false && upperOption == false && numericOption == false && specialOption == true) {
-      charset = "!@#$%^&*()_+",
-      password = "";
-        for (var i = 0, n = charset.length; i < length; i++) {
-          password += passwordLength.charAt(Math.floor(Math.random() * n));
-        }
-      console.log(password);
-    }
-    
+  if (includeUppercase) {
+    charSet += uppercaseChars;
   }
+  if (includeNumeric) {
+    charSet += numericChars;
+  }
+  if (includeSpecial) {
+    charSet += specialChars;
+  }
+
+ // Generate password
+  var password = "";
+  for (var i = 0; i < length; i++) {
+    var randomIndex = Math.floor(Math.random() * charSet.length);
+    password += charSet[randomIndex];
+  }
+
+  // Return generated password
   return password;
 
 }
