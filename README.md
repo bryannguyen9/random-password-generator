@@ -10,11 +10,11 @@ https://www.w3schools.com/JS/js_random.asp
 | HTML    | [https://developer.mozilla.org/en-US/docs/Web/HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) | 
 | CSS     | [https://developer.mozilla.org/en-US/docs/Web/CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)      |   
 | Git | [https://git-scm.com/](https://git-scm.com/)     |  
-| JavaScript | [https://developer.mozilla.org/en-US/docs/Web/javascript] |
+| JavaScript | [https://developer.mozilla.org/en-US/docs/Web/javascript](https://developer.mozilla.org/en-US/docs/Web/javascript) |
 
 ## Description
 
-[Visit the Deployed Site] (https://bryannguyen9.github.io/random-password-generator/)
+[Visit the Deployed Site](https://bryannguyen9.github.io/random-password-generator/)
 
 This project was a code refactor of already built html and css styling with an initial textbox for users to insert text and a 'Generate Password' button. It did not produce any password. 
 
