@@ -3,41 +3,34 @@ This is a code refactor to generate a more secure and random password for users
 
 https://www.w3schools.com/JS/js_random.asp
 
-# 03 JavaScript: Password Generator
+## Technology Used 
 
-## Your Task
+| Technology Used         | Resource URL           | 
+| ------------- |:-------------:| 
+| HTML    | [https://developer.mozilla.org/en-US/docs/Web/HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) | 
+| CSS     | [https://developer.mozilla.org/en-US/docs/Web/CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)      |   
+| Git | [https://git-scm.com/](https://git-scm.com/)     |  
+| JavaScript | [https://developer.mozilla.org/en-US/docs/Web/javascript] (https://developer.mozilla.org/en-US/docs/Web/javascript)     |
 
-This week’s challenge requires you to modify starter code to create an application that enables employees to generate random passwords based on criteria that they’ve selected. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean and polished, responsive user interface that adapts to multiple screen sizes.
+## Description
 
-The password can include special characters. If you’re unfamiliar with these, see this [list of password special characters](https://www.owasp.org/index.php/Password_special_characters) from the OWASP Foundation.
+[Visit the Deployed Site] (https://bryannguyen9.github.io/random-password-generator/)
 
-## User Story
+This project was a code refactor of already built html and css styling with an initial textbox for users to insert text and a 'Generate Password' button. It did not produce any password. 
 
-```
-AS AN employee with access to sensitive data
-I WANT to randomly generate a password that meets certain criteria
-SO THAT I can create a strong password that provides greater security
-```
+The functionality that was built in was for users to click the 'Generate Password' button and be able to select from different criteria using confirm/prompt boxes in order to create a secure and randomized password that would when valid and finished would generate a password within the textbox for users.
 
-## Acceptance Criteria
+Again here is a link to my fully deployed website: 
+[Site Landing Page](https://bryannguyen9.github.io/random-password-generator/)
 
-```
-GIVEN I need a new, secure password
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password
-WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters
-WHEN asked for character types to include in the password
-THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page
-```
+## Table of Contents
+
+* [Code Refactor Example](#code-refactor-example)
+* [Usage](#usage)
+* [Learning Points](#learning-points)
+* [Author Info](#author-info)
+* [Credits](#credits)
+* [License](#license)
 
 ## Mock-Up
 
@@ -45,54 +38,119 @@ The following image shows the web application's appearance and functionality:
 
 ![The Password Generator application displays a red button to "Generate Password".](./Assets/03-javascript-challenge-demo.png)
 
-## Grading Requirements
+## Code Refactor Example
 
-This challenge is graded based on the following criteria: 
+Here is an example of my javascript code that allows users to choose from different character sets and then adds it to the main character set. 
 
-### Technical Acceptance Criteria: 40%
+A randomizer that is given the length of that finalized character set gets an index from 1 to that finalized length and then uses that index to select a random character from the set and concat it to the finalized password.
 
-* Satisfies all of the preceding acceptance criteria plus the following:
+```javascript
+  // Define character sets to be used based on user input
+  var lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
+  var uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var numericChars = "0123456789";
+  var specialChars = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
 
-  * The challenge should not produce any errors in the console when you inspect it using Chrome DevTools.
+  // Build character set based on user input
+  var charSet = "";
+      if (includeLowercase) {
+        charSet += lowercaseChars;
+      }
+      if (includeUppercase) {
+        charSet += uppercaseChars;
+      }
+      if (includeNumeric) {
+        charSet += numericChars;
+      }
+      if (includeSpecial) {
+        charSet += specialChars;
+      }
 
-### Deployment: 32%
+    // Generate password
+    var password = "";
+      for (var i = 0; i < length; i++) {
+        var randomIndex = Math.floor(Math.random() * charSet.length);
+        password += charSet[randomIndex];
+      }
 
-* Application deployed at live URL.
+    // Return generated password
+    return password;
+```
 
-* Application loads with no errors.
+## Usage
+ 
+Here you can see the basic home page that was already created at time of code refactor.
 
-* Application GitHub URL submitted.
+[Password Generator Homepage Screenshot](./Assets/passwordgeneratorhomess.png)
 
-* GitHub repository that contains application code.
+Here you can see that when you click the 'Generate Password' button you are prompted to enter the desired length of password using the window prompt functionality.
 
-### Application Quality: 15%
+[Prompt Window Popup Screenshot](./Assets/images/windowpromptss.png)
 
-* Application user experience is intuitive and easy to navigate.
+Here you can see after selecting different criteria assuming you did not enter an invalid length, a secure randomized password is generated within the textbox that is based on the user selected criteria.
 
-* Application user interface style is clean and polished.
+[Generated Password Screenshot](./Assets/images/generatedpassword.png)
 
-* Application resembles the mock-up functionality provided in the challenge instructions.
 
-### Repository Quality: 13%
+## Learning Points 
 
-* Repository has a unique name.
+A lot of time was spent figuring out how to use the random function with javascript. Not only is there a random function but you have to use the built in math library within javascript along with math.floor in order to correctly get the random function to work the way you want it to.
 
-* Repository follows best practices for file structure and naming conventions.
+In this certain case of creating a random secure password I had to learn how to incorporate the character set length with the randomizer in order to get a random index of that set length and then incorporate concatenation to create the secure finalized password.
 
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
+These are references and resources that I used in order to help me learn the ins and outs and overall functionality and use cases of the random feature in javascript:
 
-* Repository contains multiple descriptive commit messages.
+1. [W3 schools](https://www.w3schools.com/JS/js_random.asp)
+2. [Mozilla Developer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
+3. [Stack-Overflow](https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range)
 
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
+## About Me
 
-## Review
+Hi, my name is Bryan Nguyen I am an up and coming full-stack web developer working
+on getting into the space with projects that support both my growth, belief, and imagination. I hope to one day work within the realm of AI, web-development, and even site-reliability/the space of cyber-security.
 
-You are required to submit the following for review:
+### My links
 
-* The URL of the deployed application.
+* [Portfolio](https://bryannguyen9.github.io/Bryan-Nguyen-Portfolio/)
+* [LinkedIn](https://linkedin.com/in/bryannguyen9)
+* [Github](https://github.com/bryannguyen9)
 
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
 
-- - -
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
-Choose 
+## Credits
+
+# Special thanks to David Chung: 
+ 
+ * His Github Portfolio: [David-Chung-Github](https://github.com/dchung13/)
+ * His Linked-In: [David-Chung-LinkedIn](https://www.linkedin.com/in/david-chung-77141526b/)
+ * His Portfolio Site: [David-Chung-Portfolio](https://dchung13.github.io/David-Chung-Portfolio/) 
+
+# Special thanks to these reference websites that taught me different functionalities within my website for me to create a seamless experience for users.
+
+1. [W3 Schools](https://www.w3schools.com/JS/js_random.asp)
+2. [Mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
+3. [Stack-Overflow](https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range)
+
+
+## License
+
+MIT License
+
+Copyright (c) [2023] [Bryan-Nguyen]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
