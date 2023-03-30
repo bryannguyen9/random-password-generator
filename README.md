@@ -131,7 +131,7 @@ on getting into the space with projects that support both my growth, belief, and
 3. [Stack-Overflow](https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range)
 
 
-### License
+## License
 
 MIT License
 
