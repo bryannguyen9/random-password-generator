@@ -79,17 +79,17 @@ A randomizer that is given the length of that finalized character set gets an in
 
 ## Usage
  
-Here you can see the basic home page that was already created at time of code refactor.
+Here you can see the basic home page that was already created at time of code refactor:
 
-[Password Generator Homepage Screenshot](./Assets/passwordgeneratorhomess.png)
+![Password Generator Homepage Screenshot](./Assets/passwordgeneratorhomess.png)
 
-Here you can see that when you click the 'Generate Password' button you are prompted to enter the desired length of password using the window prompt functionality.
+Here you can see that when you click the 'Generate Password' button you are prompted to enter the desired length of password using the window prompt functionality:
 
-[Prompt Window Popup Screenshot](./Assets/images/windowpromptss.png)
+![Prompt Window Popup Screenshot](./Assets/windowpromptss.png)
 
-Here you can see after selecting different criteria assuming you did not enter an invalid length, a secure randomized password is generated within the textbox that is based on the user selected criteria.
+Here you can see after selecting different criteria assuming you did not enter an invalid length, a secure randomized password is generated within the textbox that is based on the user selected criteria:
 
-[Generated Password Screenshot](./Assets/images/generatedpassword.png)
+![Generated Password Screenshot](./Assets/generatedpassword.png)
 
 
 ## Learning Points 
@@ -109,7 +109,7 @@ These are references and resources that I used in order to help me learn the ins
 Hi, my name is Bryan Nguyen I am an up and coming full-stack web developer working
 on getting into the space with projects that support both my growth, belief, and imagination. I hope to one day work within the realm of AI, web-development, and even site-reliability/the space of cyber-security.
 
-### My links
+## My links
 
 * [Portfolio](https://bryannguyen9.github.io/Bryan-Nguyen-Portfolio/)
 * [LinkedIn](https://linkedin.com/in/bryannguyen9)
@@ -118,20 +118,20 @@ on getting into the space with projects that support both my growth, belief, and
 
 ## Credits
 
-# Special thanks to David Chung: 
+### Special thanks to David Chung: 
  
  * His Github Portfolio: [David-Chung-Github](https://github.com/dchung13/)
  * His Linked-In: [David-Chung-LinkedIn](https://www.linkedin.com/in/david-chung-77141526b/)
  * His Portfolio Site: [David-Chung-Portfolio](https://dchung13.github.io/David-Chung-Portfolio/) 
 
-# Special thanks to these reference websites that taught me different functionalities within my website for me to create a seamless experience for users.
+### Special thanks to these reference websites that taught me different functionalities within my website for me to create a seamless experience for users.
 
 1. [W3 Schools](https://www.w3schools.com/JS/js_random.asp)
 2. [Mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
 3. [Stack-Overflow](https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range)
 
 
-## License
+### License
 
 MIT License
 
